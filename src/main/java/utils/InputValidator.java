@@ -29,7 +29,7 @@ public class InputValidator {
     }
 
     public static void isDistinctName(String input) {
-        if (isDuplicateName(input)) {
+        if (!isDuplicateName(input)) {
             throw new DuplicateCarNameException();
         }
     }
