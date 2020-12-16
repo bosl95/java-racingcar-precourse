@@ -2,18 +2,18 @@ package racingcar.controller;
 
 public class GameController {
     public void start() {
-        while (true) {
-            inputCarName();
-        }
+        inputCarName();
     }
 
     private void inputCarName() {
-        String name = null;
-        try {
-            name = CarController.askCarName();
-        } catch (NullPointerException e) {
-
+        while (true) {
+            String name = null;
+            try {
+                name = CarController.askCarName();
+                break;
+            } catch (NullPointerException e) {
+                // 예외 시 다시 입력
+            }
         }
-
     }
 }
