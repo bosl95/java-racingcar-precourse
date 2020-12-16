@@ -14,9 +14,8 @@ public class GameController {
 
     private void inputCarName() {
         while (true) {
-            String name = null;
             try {
-                name = CarController.askCarName();
+                CarController.askCarName();
                 break;
             } catch (NullPointerException e) {
                 // 예외 시 다시 입력

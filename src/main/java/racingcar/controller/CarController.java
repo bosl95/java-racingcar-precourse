@@ -10,13 +10,13 @@ import utils.exception.InvalidCarNameException;
 public class CarController {
     static final Cars cars = new Cars();
 
-    public static String askCarName() {
+    public static void askCarName() {
         OutputView.askCarName();
         try {
             String input = InputView.input();
             InputValidator.validNameInput(input);
             InputValidator.isDistinctName(input);
-            return input;
+            cars.add(input, InputValidator.DELIMITER);
         } catch (InvalidCarNameException | DuplicateCarNameException e) {
             throw new NullPointerException();
         }

@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class InputValidator {
     private static String CAR_NAME_PATTERN = "[0-9가-힣a-zA-Z,]+";
     private static String TIME_PATTERN = "-?[0-9]";
-    private static String DELIMITER = ",";
+    public static String DELIMITER = ",";
 
     public static void validNameInput(String input) {
         isCharacter(input);
