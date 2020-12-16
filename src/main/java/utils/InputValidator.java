@@ -2,12 +2,15 @@ package utils;
 
 import utils.exception.DuplicateCarNameException;
 import utils.exception.InvalidCarNameException;
+import utils.exception.NotNumberException;
+import utils.exception.InvalidRangeTimeException;
 
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class InputValidator {
-    private static String CAR_NAME_PATTERN = "^[0-9가-힣a-zA-Z,]*$";
+    private static String CAR_NAME_PATTERN = "[0-9가-힣a-zA-Z,]+";
+    private static String TIME_PATTERN = "-?[0-9]";
     private static String DELIMITER = ",";
 
     public static void validNameInput(String input) {
@@ -38,5 +41,19 @@ public class InputValidator {
         return Arrays.stream(input.split(DELIMITER))
                 .distinct()
                 .count() != input.split(DELIMITER).length;
+    }
+
+    public static void validTimeInput(String input) {
+        if (!Pattern.matches(TIME_PATTERN, input)) {
+            throw new NotNumberException();
+        }
+
+        if (isBelowZero(input)) {
+            throw new InvalidRangeTimeException();
+        }
+    }
+
+    private static boolean isBelowZero(String input) {
+        return Integer.valueOf(input)<=0;
     }
 }
