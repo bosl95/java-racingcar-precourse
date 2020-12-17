@@ -44,7 +44,7 @@ public class Cars {
     }
 
     private int findMaxPosition() {
-        int maxPosition = -1;
+        int maxPosition = -1;   // initiate min value
         return carList.stream()
                 .filter(car -> car.aboveMaxPosition(maxPosition))
                 .mapToInt(car -> car.getPosition())
