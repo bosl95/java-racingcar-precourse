@@ -16,7 +16,7 @@ public class Car {
         return this.name + " : " + new String(new char[this.position]).replace("\0", "-");
     }
 
-    public int getMaxPosition(int position) {
+    public int comparePosition(int position) {
         return Math.max(this.position, position);
     }
 
