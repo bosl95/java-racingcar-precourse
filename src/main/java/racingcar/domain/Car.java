@@ -12,11 +12,15 @@ public class Car {
         this.position++;
     }
 
-    public String getState() {
-        return this.name + " : " + new String(new char[this.position]).replace("\0", "-");
+    String getState() {
+        return name + " : " + repeat("-", position);
     }
 
-    public String getName() {
+    private String repeat(String str, int num) {
+        return new String(new char[num]).replace("\0", str);
+    }
+
+    String getName() {
         return this.name;
     }
 
@@ -24,11 +28,11 @@ public class Car {
         return position;
     }
 
-    public boolean aboveMaxPosition(int position) {
+    boolean aboveMaxPosition(int position) {
         return this.position >= position;
     }
 
-    public boolean isMaxPosition(int maxPosition) {
+    boolean isMaxPosition(int maxPosition) {
         return this.position == maxPosition;
     }
 }
