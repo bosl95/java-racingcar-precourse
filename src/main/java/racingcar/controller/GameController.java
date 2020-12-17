@@ -13,13 +13,10 @@ public class GameController {
     }
 
     private void inputCarName() {
-        while (true) {
-            try {
-                CarController.askCarName();
-                break;
-            } catch (NullPointerException e) {
-                // 예외 시 다시 입력
-            }
+        try {
+            CarController.askCarName();
+        } catch (NullPointerException e) {
+            inputCarName();
         }
     }
 
