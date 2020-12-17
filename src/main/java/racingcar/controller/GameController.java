@@ -12,7 +12,7 @@ public class GameController {
     public void start() {
         inputCarName();
         inputTimes();
-        startRound();
+        eachRoundStart();
         findWinner();
     }
 
@@ -33,7 +33,7 @@ public class GameController {
         }
     }
 
-    private void startRound() {
+    private void eachRoundStart() {
         while (time.count() >= 0) {
             List<String> state = CarController.startRound();
             OutputView.showState(state);

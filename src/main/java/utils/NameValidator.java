@@ -40,6 +40,4 @@ public class NameValidator {
                 .distinct()
                 .count() != input.split(DELIMITER).length;
     }
-
-
 }
