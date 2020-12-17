@@ -1,9 +1,8 @@
 package racingcar.view;
 
-import utils.InputValidator;
+import utils.NameValidator;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class OutputView {
     static final StringBuilder stringBuilder = new StringBuilder();
@@ -39,7 +38,7 @@ public class OutputView {
 
     public static void showWinner(List<String> winner) {
         stringBuilder.append(LAST_WINNER);
-        stringBuilder.append(String.join(InputValidator.DELIMITER, winner));
+        stringBuilder.append(String.join(NameValidator.DELIMITER, winner));
         print();
     }
 }
