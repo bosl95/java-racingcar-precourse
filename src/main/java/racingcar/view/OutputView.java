@@ -16,7 +16,7 @@ public class OutputView {
         print();
     }
 
-    static void print(){
+    static void print() {
         System.out.print(stringBuilder.toString());
         reset();
     }
@@ -30,8 +30,8 @@ public class OutputView {
         print();
     }
 
-    public static void showState(List<String> state) {
-        state.forEach(s -> stringBuilder.append(s+NEXT_LINE));
+    public static void showState(List<String> states) {
+        states.forEach(state -> stringBuilder.append(state + NEXT_LINE));
         stringBuilder.append(NEXT_LINE);
         print();
     }
