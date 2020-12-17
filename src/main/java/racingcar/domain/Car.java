@@ -16,15 +16,19 @@ public class Car {
         return this.name + " : " + new String(new char[this.position]).replace("\0", "-");
     }
 
-    public int comparePosition(int position) {
-        return Math.max(this.position, position);
+    public String getName() {
+        return this.name;
+    }
+
+    int getPosition() {
+        return position;
+    }
+
+    public boolean aboveMaxPosition(int position) {
+        return this.position >= position;
     }
 
     public boolean isMaxPosition(int maxPosition) {
         return this.position == maxPosition;
-    }
-
-    public String getName() {
-        return this.name;
     }
 }

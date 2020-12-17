@@ -1,14 +1,11 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Cars {
     final List<Car> carList = new ArrayList<>();
     static int forwardPoint = 4;
-    int maxPosition = -1;
 
     public void add(String input, String delimiter) {
         carList.addAll(Arrays.stream(input.split(delimiter))
@@ -32,17 +29,18 @@ public class Cars {
     }
 
     public List<String> getWinner() {
-        findMaxPosition();
         return carList.stream()
-                .filter(car -> car.isMaxPosition(maxPosition))
+                .filter(car -> car.isMaxPosition(findMaxPosition()))
                 .map(car -> car.getName())
                 .collect(Collectors.toList());
     }
 
-    private void findMaxPosition() {
-        carList.stream()
-                .forEach(car -> {
-                    maxPosition = car.comparePosition(maxPosition);
-                });
+    private int findMaxPosition() {
+        int maxPosition = -1;
+        return carList.stream()
+                .filter(car -> car.aboveMaxPosition(maxPosition))
+                .mapToInt(car -> car.getPosition())
+                .max()
+                .getAsInt();
     }
 }
