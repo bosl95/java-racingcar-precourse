@@ -1,8 +1,8 @@
 package racingcar.controller;
 
+import racingcar.domain.Time;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-import utils.InputValidator;
 
 import java.util.List;
 
@@ -27,9 +27,8 @@ public class GameController {
     private void inputTimes() {
         OutputView.askTimes();
         try {
-            String input = InputView.input();
-            InputValidator.validTimeInput(input);
-            time = Integer.valueOf(input);
+            Time time = new Time(InputView.input());
+            this.time = time.getTime();
         } catch (NullPointerException e) {
             inputTimes();
         }
