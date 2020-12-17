@@ -12,12 +12,13 @@ public class Car {
         this.position++;
     }
 
-    String getState() {
-        return name + " : " + repeat("-", position);
-    }
-
     private String repeat(String str, int num) {
         return new String(new char[num]).replace("\0", str);
+    }
+
+    @Override
+    public String toString() {
+        return name + " : " + repeat("-", position);
     }
 
     String getName() {

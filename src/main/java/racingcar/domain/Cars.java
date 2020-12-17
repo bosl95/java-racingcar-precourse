@@ -27,7 +27,7 @@ public class Cars {
 
     public List<String> states() {
         return carList.stream()
-                .map(car -> car.getState())
+                .map(car -> car.toString())
                 .collect(Collectors.toList());
     }
 
