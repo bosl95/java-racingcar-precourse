@@ -33,7 +33,7 @@ public class CarController {
         return cars.states();
     }
 
-    public static List<String> findWinner() {
-        return cars.getWinner();
+    public static void findWinner() {
+        OutputView.showWinner(cars.getWinner());
     }
 }

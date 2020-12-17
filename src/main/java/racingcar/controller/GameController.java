@@ -41,7 +41,6 @@ public class GameController {
     }
 
     private void findWinner() {
-        List<String> winner = CarController.findWinner();
-        OutputView.showWinner(winner);
+        CarController.findWinner();
     }
 }
