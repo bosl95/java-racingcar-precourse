@@ -11,7 +11,7 @@ public class NameValidator {
     private static String CAR_NAME_PATTERN = "[0-9가-힣a-zA-Z,]+";
     public static String DELIMITER = ",";
 
-    public static void validNameInput(String input) {
+    private static void validNameInput(String input) {
         isCharacter(input);
         validDelimiter(input);
         isDuplicateName(input);
@@ -29,7 +29,7 @@ public class NameValidator {
         }
     }
 
-    public static void isDistinctName(String input) {
+    private static void isDistinctName(String input) {
         if (isDuplicateName(input)) {
             throw new DuplicateCarNameException();
         }
@@ -39,5 +39,10 @@ public class NameValidator {
         return Arrays.stream(input.split(DELIMITER))
                 .distinct()
                 .count() != input.split(DELIMITER).length;
+    }
+
+    public static void invalidName(String input) {
+        validNameInput(input);
+        isDistinctName(input);
     }
 }

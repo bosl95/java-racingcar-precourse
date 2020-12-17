@@ -10,15 +10,10 @@ public class Cars {
     static int forwardPoint = 4;
 
     public void add(String input, String delimiter) {
-        invalidName(input);
+        NameValidator.invalidName(input);
         carList.addAll(Arrays.stream(input.split(delimiter))
                 .map(name -> new Car(name))
                 .collect(Collectors.toList()));
-    }
-
-    private void invalidName(String input) {
-        NameValidator.validNameInput(input);
-        NameValidator.isDistinctName(input);
     }
 
     public void moveForward() {
@@ -44,7 +39,7 @@ public class Cars {
     }
 
     private int findMaxPosition() {
-        int maxPosition = -1;   // initiate min value
+        int maxPosition = 0;   // initiate min value
         return carList.stream()
                 .filter(car -> car.aboveMaxPosition(maxPosition))
                 .mapToInt(car -> car.getPosition())
