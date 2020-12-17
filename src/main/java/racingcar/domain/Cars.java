@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import utils.NameValidator;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -8,9 +10,15 @@ public class Cars {
     static int forwardPoint = 4;
 
     public void add(String input, String delimiter) {
+        invalidName(input);
         carList.addAll(Arrays.stream(input.split(delimiter))
                 .map(name -> new Car(name))
                 .collect(Collectors.toList()));
+    }
+
+    private void invalidName(String input) {
+        NameValidator.validNameInput(input);
+        NameValidator.isDistinctName(input);
     }
 
     public void moveForward() {

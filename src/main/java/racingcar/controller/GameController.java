@@ -25,9 +25,8 @@ public class GameController {
     }
 
     private void inputTimes() {
-        OutputView.askTimes();
         try {
-            time = new Time(InputView.input());
+            time = new Time(InputView.inputTime());
         } catch (NullPointerException e) {
             inputTimes();
         }

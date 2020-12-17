@@ -13,11 +13,8 @@ public class CarController {
     static final Cars cars = new Cars();
 
     public static void askCarName() {
-        OutputView.askCarName();
         try {
-            String input = InputView.input();
-            NameValidator.validNameInput(input);
-            NameValidator.isDistinctName(input);
+            String input = InputView.inputName();
             cars.add(input, NameValidator.DELIMITER);
         } catch (InvalidCarNameException | DuplicateCarNameException e) {
             throw new NullPointerException();
