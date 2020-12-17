@@ -5,6 +5,7 @@ import utils.exception.InvalidRangeTimeException;
 import utils.exception.NotNumberException;
 
 public class Time {
+    public static int TIMEOUT = 0;
     private int time;
 
     public Time(String time) {

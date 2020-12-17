@@ -33,7 +33,7 @@ public class GameController {
     }
 
     private void eachRoundStart() {
-        while (time.count() >= 0) {
+        while (time.count() >= time.TIMEOUT) {
             List<String> state = CarController.startRound();
             OutputView.showState(state);
         }
