@@ -1,9 +1,16 @@
 package racingcar.view;
 
+import utils.InputValidator;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class OutputView {
     static final StringBuilder stringBuilder = new StringBuilder();
     private static String ASK_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n";
     private static String ASK_TIME = "시도할 횟수를 입력하세요\n";
+    private static String NEXT_LINE = "\n";
+    private static String LAST_WINNER = "최종 우승자 : ";
 
     public static void askCarName() {
         stringBuilder.append(ASK_CAR_NAME);
@@ -21,6 +28,18 @@ public class OutputView {
 
     public static void askTimes() {
         stringBuilder.append(ASK_TIME);
+        print();
+    }
+
+    public static void showState(List<String> state) {
+        state.forEach(s -> stringBuilder.append(s+NEXT_LINE));
+        stringBuilder.append(NEXT_LINE);
+        print();
+    }
+
+    public static void showWinner(List<String> winner) {
+        stringBuilder.append(LAST_WINNER);
+        stringBuilder.append(String.join(InputValidator.DELIMITER, winner));
         print();
     }
 }

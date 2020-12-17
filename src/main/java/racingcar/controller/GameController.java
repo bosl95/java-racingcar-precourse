@@ -4,12 +4,16 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import utils.InputValidator;
 
+import java.util.List;
+
 public class GameController {
-    private String time;
+    private int time;
 
     public void start() {
         inputCarName();
         inputTimes();
+        startRound();
+        findWinner();
     }
 
     private void inputCarName() {
@@ -25,9 +29,21 @@ public class GameController {
         try {
             String input = InputView.input();
             InputValidator.validTimeInput(input);
-            time = input;
+            time = Integer.valueOf(input);
         } catch (NullPointerException e) {
             inputTimes();
         }
+    }
+
+    private void startRound() {
+        while (--time >= 0) {
+            List<String> state = CarController.startRound();
+            OutputView.showState(state);
+        }
+    }
+
+    private void findWinner() {
+        List<String> winner = CarController.findWinner();
+        OutputView.showWinner(winner);
     }
 }
