@@ -7,7 +7,7 @@ import racingcar.view.OutputView;
 import java.util.List;
 
 public class GameController {
-    private int time;
+    private Time time;
 
     public void start() {
         inputCarName();
@@ -27,15 +27,14 @@ public class GameController {
     private void inputTimes() {
         OutputView.askTimes();
         try {
-            Time time = new Time(InputView.input());
-            this.time = time.getTime();
+            time = new Time(InputView.input());
         } catch (NullPointerException e) {
             inputTimes();
         }
     }
 
     private void startRound() {
-        while (--time >= 0) {
+        while (time.count() >= 0) {
             List<String> state = CarController.startRound();
             OutputView.showState(state);
         }

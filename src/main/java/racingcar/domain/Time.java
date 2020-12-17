@@ -5,11 +5,11 @@ import utils.exception.InvalidRangeTimeException;
 import utils.exception.NotNumberException;
 
 public class Time {
-    private String time;
+    private int time;
 
     public Time(String time) {
         Time.validTimeInput(time);
-        this.time = time;
+        this.time = Integer.parseInt(time);
     }
 
     public static void validTimeInput(String time) {
@@ -22,7 +22,7 @@ public class Time {
         }
     }
 
-    public int getTime() {
-        return Integer.parseInt(time);
+    public int count() {
+        return --time;
     }
 }
